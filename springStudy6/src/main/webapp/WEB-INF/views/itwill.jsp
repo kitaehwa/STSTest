@@ -27,6 +27,10 @@
 ${memberVO}<hr>
 ${vo1}<hr>
 
+userid : ${userid }<hr>
+userid : ${param.userid }<hr>
+userpw : ${userpw }<hr>
+userpw : ${param.userpw }<hr>
 
 
 
