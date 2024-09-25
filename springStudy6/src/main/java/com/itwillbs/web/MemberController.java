@@ -58,10 +58,13 @@ public class MemberController {
 		// MemberDAO 객체 생성 => 객체 주입
 		mService.memberJoin(vo);
 		logger.debug("회원가입 성공!");
-		// 테스트
-		return "";
+		logger.debug("로그인 페이지로 이동 /member/login");
+		
+		return "redirect:/member/login";
 	}
 	
+	// 로그인 처리 - 입력
+	// 로그인 처리 - 처리
 	
 
 
