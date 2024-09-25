@@ -98,7 +98,7 @@ public class MemberController {
 			session.setAttribute("id", resultVO.getUserid());
 			
 			// 로그인 성공! 메인 페이지로 이동
-		
+			// 로그인
 			return "redirect:/member/main";
 	}
 	
