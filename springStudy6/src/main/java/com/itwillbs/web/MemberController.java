@@ -1,12 +1,15 @@
 package com.itwillbs.web;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
 
 import com.itwillbs.domain.MemberVO;
 import com.itwillbs.persistence.MemberDAO;
@@ -63,8 +66,41 @@ public class MemberController {
 		return "redirect:/member/login";
 	}
 	
-	// 로그인 처리 - 입력
-	// 로그인 처리 - 처리
+	// 로그인 처리 - 입력(GET)
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+	public String loginMemberGET() {
+		logger.debug("/member/login -> loginMemberGET() 실행");
+		logger.debug("연결된 뷰페이지(JSP) 출력");
+		return "/member/loginForm"; // /views/member/loginForm
+	}
+	
+	// 로그인 처리 - 처리(POST)
+	@RequestMapping(value="/login", method = RequestMethod.POST)
+	//public String loginMemberPOST(@RequestPart("userid") String userid,
+								  //@ModelAttribute("userpw") String userpw) {
+		public String loginMemberPOST(MemberVO vo, HttpSession session) {
+
+		logger.debug("/member/login(post) -> loginMemberPOST() 실행");
+		
+		// 전달정보를 저장(userid, userpw)
+		logger.debug("vo : "+vo);
+		//logger.debug("userid : "+userid);
+		//logger.debug("userpw : "+userpw);
+		
+		// 서비스 -> 회원정보 확인 -> DAO 호출
+		MemberVO resultVO = mService.memberLoginCheck(vo);
+		
+		if(resultVO == null) {
+			// 로그인 실패! 로그인 페이지로 이동
+			return "redirect:/member/login";
+		}
+			// 사용자의 아이디정보를 세션 영역에 저장
+			session.setAttribute("id", resultVO.getUserid());
+			
+			// 로그인 성공! 메인 페이지로 이동
+		
+			return "redirect:/member/main";
+	}
 	
 
 

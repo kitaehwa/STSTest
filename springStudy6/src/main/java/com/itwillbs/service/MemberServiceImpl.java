@@ -35,5 +35,14 @@ public class MemberServiceImpl implements MemberService{
 			logger.debug("DAO -> 서비스");
 			logger.debug("서비스 -> 컨트롤러");
 		}
-	
+		
+		@Override
+		public MemberVO memberLoginCheck(MemberVO vo) {
+			logger.debug("컨트롤러가 호출 -> DAO 호출");
+			// DAO 객체를 사용해서 로그인 여부를 체크하는 메서드를 호출
+			
+			// MemberVO resultVO = mdao.loginMember(vo);
+			// retrun resultVO;
+			return mdao.loginMember(vo);
+		}
 }
