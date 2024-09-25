@@ -37,12 +37,12 @@ public class MemberDAOTest {
 		
 		// 회원가입정보
 		MemberVO vo = new MemberVO();
-		vo.setUserid("itwillbs");
+		vo.setUserid("admin");
 		vo.setUserpw("1234");
-		vo.setUsername("아이티윌부산");
-		vo.setUseremail("itwillbs@admin.com");
+		vo.setUsername("아이티윌");
+		vo.setUseremail("itwill@admin.com");
 		
-		// mdao.insertMember(vo);
+		//mdao.insertMember(vo);
 		
 		System.out.println(" TEST : 회원가입테스트() 끝 ");
 	}
@@ -69,7 +69,7 @@ public class MemberDAOTest {
 	
 	// 회원정보 조회
 	
-	//@Test
+	// @Test
 	public void 회원정보조회() {
 		MemberVO resultVO = mdao.getMember("admin");
 		System.out.println(" 회원정보 : "+resultVO);
@@ -96,7 +96,7 @@ public class MemberDAOTest {
 			
 	}
 	
-	//@Test
+	// @Test
 	public void 회원정보삭제() {
 		MemberVO dvo = new MemberVO();
 		dvo.setUserid("itwillbs");
