@@ -58,7 +58,7 @@ public class MemberController {
 		// MemberDAO 객체 생성 => 객체 주입
 		mService.memberJoin(vo);
 		logger.debug("회원가입 성공!");
-		
+		// 테스트
 		return "";
 	}
 	
