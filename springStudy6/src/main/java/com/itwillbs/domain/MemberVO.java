@@ -33,6 +33,6 @@ public class MemberVO {
 	private String userpw;
 	private String username;
 	private String useremail;
-	private Timestamp ragdate;
+	private Timestamp regdate;
 	private Timestamp updatedate;
 }

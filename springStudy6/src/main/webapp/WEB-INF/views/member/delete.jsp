@@ -7,35 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> joinMember.jsp </h1>
+	<h1>delete.jsp</h1>
 	
 	<fieldset>
-		<legend> 회원가입 </legend>
+		<legend> 회원삭제 </legend>
 		
 		<form action="" method="post">
-			아이디 : <input type="text" name = "userid"> <br>
+<!-- 			아이디 :  -->
+			<input type="hidden" name="userid" value="${sessionScope.id }"> 
 			비밀번호 : <input type="password" name = "userpw"> <br>
-			이름 : <input type="text" name = "username"> <br>
-			이메일 : <input type="text" name = "useremail"> <br>
-		
-			<input type = "submit" value = "회원가입">
-			
+			<input type = "submit" value = "회원삭제">	
 		</form>
-	
-	
-	
 	</fieldset>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </body>
 </html>
