@@ -39,7 +39,7 @@ public class MemberController {
 //	}
 	
 	// 회원가입 - 정보입력
-	// http://localhost:8088/member/join
+	// http://localhost:8088/member/login
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public void joinMemberGet() {
 		logger.debug("/join -> joinMemberGet() 실행");
