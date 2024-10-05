@@ -183,7 +183,7 @@ body{
                 <input type="checkbox" class="save_id" name="checkId" id="saveId"> 사원번호 저장</label>	
 				<input type="submit" value="로그인">
          	  		   
-                <a href="">비밀번호를 잊으셨나요?</a>
+                <a href="">비밀번호를 잊으셨나요??</a>
 	</div>	
 	
 	<!-- SNS 로그인 섹션 -->
