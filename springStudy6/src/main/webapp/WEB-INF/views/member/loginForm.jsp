@@ -87,7 +87,7 @@ body{
                 <input type="checkbox" id="remember-check"> 사원번호 저장</label>	
 				<input type="submit" value="로그인">
          	  		   
-                <a href="">비밀번호를 잊으셨나요??</a>
+                <a href="">비밀번호를 잊으셨나요?</a>
 	</div>	
 </body>
 </html>
