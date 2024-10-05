@@ -58,6 +58,7 @@ body{
 }
 #login-form > label{
     color: #999999;
+    float: left;
 }
 #login-form input[type="checkbox"] + label{
     cursor: pointer;
@@ -69,25 +70,128 @@ body{
 #login-form input[type="checkbox"]:checked + label{
     background-image: url("checkbox-active.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain;  
 }
+
+.login-wrapper {
+    text-align: center;
+}
+
+.sns-login {
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: absolute;
+    text-align: center;
+  	margin-left: -200px;
+  	margin-top: -200px;
+  	left: 50%;
+  	top: 70%;
+}
+
+.sns-login a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.sns-login img {
+    width: 40px;
+    height: 40px;
+}  
 
 </style>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<script type="text/javascript">
+     $(function() {        
+           fnInit();         
+     });
+     
+     function frm_check(){
+         saveid();
+     }
+ 
+    function fnInit(){
+        var cookieid = getCookie("saveid");
+        console.log(cookieid);
+        if(cookieid !=""){
+            $("input:checkbox[id='saveId']").prop("checked", true);
+            $('#logId').val(cookieid);
+        }       
+    }    
+ 
+    function setCookie(name, value, expiredays) {
+        var todayDate = new Date();
+        todayDate.setTime(todayDate.getTime() + 0);
+        if(todayDate > expiredays){
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiredays + ";";
+        }else if(todayDate < expiredays){
+            todayDate.setDate(todayDate.getDate() + expiredays);
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+        }            
+        console.log(document.cookie);
+    }
+ 
+    function getCookie(Name) {
+        var search = Name + "=";
+        console.log("search : " + search);
+        
+        if (document.cookie.length > 0) { // 쿠키가 설정되어 있다면 
+            offset = document.cookie.indexOf(search);
+            console.log("offset : " + offset);
+            if (offset != -1) { // 쿠키가 존재하면 
+                offset += search.length;
+                // set index of beginning of value
+                end = document.cookie.indexOf(";", offset);
+                console.log("end : " + end);
+                // 쿠키 값의 마지막 위치 인덱스 번호 설정 
+                if (end == -1)
+                    end = document.cookie.length;
+                console.log("end위치  : " + end);              
+                return unescape(document.cookie.substring(offset, end));
+            }
+        }
+        return "";
+    }
+ 
+    function saveid() {
+        var expdate = new Date();
+        if ($("#saveId").is(":checked")){
+            expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30);
+            setCookie("saveid", $("#logId").val(), expdate);
+            }else{
+           expdate.setTime(expdate.getTime() - 1000 * 3600 * 24 * 30);
+            setCookie("saveid", $("#logId").val(), expdate);           
+        }
+    }
+    
+</script>
+
 	<div class="login-wrapper">
 		<h2>login</h2>
-			<form method="post" id="login-form"> <!-- action 속성이 없을 때 자신의 주소를 호출  -->
-				<input type="text" name="userid" placeholder="사원번호"><br>
+			<form method="post" id="login-form" onsubmit="return frm_check();"> <!-- action 속성이 없을 때 자신의 주소를 호출  -->
+				<input type="text" name="userid" id="logId" placeholder="사원번호"><br>
 				<input type="password" name="userpw" placeholder="비밀번호"><br>
 				<label for="remember-check">
-                <input type="checkbox" id="remember-check"> 사원번호 저장</label>	
+                <input type="checkbox" class="save_id" name="checkId" id="saveId"> 사원번호 저장</label>	
 				<input type="submit" value="로그인">
          	  		   
                 <a href="">비밀번호를 잊으셨나요?</a>
 	</div>	
+	
+	<!-- SNS 로그인 섹션 -->
+	<div class="sns-login">
+        <p>또는 SNS로 로그인</p>
+        <a href="#"><img src="naver-icon.png" alt="Naver"></a>
+        <a href="#"><img src="google-icon.png" alt="Google"></a>
+        <a href="#"><img src="kakao-icon.png" alt="Kakao"></a>
+    </div>
 </body>
 </html>
