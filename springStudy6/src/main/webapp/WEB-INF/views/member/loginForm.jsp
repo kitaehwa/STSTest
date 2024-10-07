@@ -187,11 +187,11 @@ body{
 	</div>	
 	
 	<!-- SNS 로그인 섹션 -->
-	<div class="sns-login">
-        <p>또는 SNS로 로그인</p>
-        <a href="#"><img src="naver-icon.png" alt="Naver"></a>
-        <a href="#"><img src="google-icon.png" alt="Google"></a>
-        <a href="#"><img src="kakao-icon.png" alt="Kakao"></a>
-    </div>
-</body>
-</html>
+<!-- 	<div class="sns-login"> -->
+<!--         <p>또는 SNS로 로그인</p> -->
+<!--         <a href="#"><img src="naver-icon.png" alt="Naver"></a> -->
+<!--         <a href="#"><img src="google-icon.png" alt="Google"></a> -->
+<!--         <a href="#"><img src="kakao-icon.png" alt="Kakao"></a> -->
+<!--     </div> -->
+<!-- </body> -->
+<!-- </html> -->

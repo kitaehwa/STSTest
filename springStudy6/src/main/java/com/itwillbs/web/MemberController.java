@@ -40,13 +40,15 @@ public class MemberController {
 	
 	// 회원가입 - 정보입력
 	// http://localhost:8088/member/login
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	// http://localhost:8088/member/main
+	@RequestMapping(value = "/loginForm", method = RequestMethod.GET)
 	public void joinMemberGet() {
 		logger.debug("/join -> joinMemberGet() 실행");
 		logger.debug("연결된 뷰(JSP)를 보여주기");
 		// 페이지 이동(X) => 스프링이 자동으로 연결
 		logger.debug("/views/member/join.jsp 뷰페이지 연결");
 	} 
+	
 	
 	// 회원가입 - 정보처리
 	@RequestMapping(value ="/join", method =RequestMethod.POST)
