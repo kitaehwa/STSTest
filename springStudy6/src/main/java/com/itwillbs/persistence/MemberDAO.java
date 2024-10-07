@@ -19,11 +19,11 @@ public interface MemberDAO {
 	public void insertMember(MemberVO vo);
 	
 	// 로그인
-	public MemberVO loginMember(String userid,String userpw);
+	public MemberVO loginMember(String id,String pw);
 	public MemberVO loginMember(MemberVO vo);
 	
 	// 사용자 정보조회
-	public MemberVO getMember(String userid);
+	public MemberVO getMember(String id);
 	
 	// 사용자 정보수정
 	public int updateMember(MemberVO uvo);

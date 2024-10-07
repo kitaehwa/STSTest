@@ -29,10 +29,10 @@ public class MemberVO {
 	// private String uId; // getUId() (x)
 	// private String userId; 
 	
-	private String userid;  // getUserid()
-	private String userpw;
-	private String username;
-	private String useremail;
+	private String id;  // getUserid()
+	private String pw;
+	private String name;
+	private String email;
 	private Timestamp regdate;
 	private Timestamp updatedate;
 }

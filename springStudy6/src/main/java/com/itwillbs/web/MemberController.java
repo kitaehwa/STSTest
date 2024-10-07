@@ -99,7 +99,7 @@ public class MemberController {
 			return "redirect:/member/login";
 		}
 			// 사용자의 아이디정보를 세션 영역에 저장
-			session.setAttribute("id", resultVO.getUserid());
+			session.setAttribute("id", resultVO.getId());
 			
 			// 로그인 성공! 메인 페이지로 이동
 			// 로그인

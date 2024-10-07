@@ -84,7 +84,7 @@ public class memberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
-	public MemberVO loginMember(String userid, String userpw) {
+	public MemberVO loginMember(String id, String pw) {
 		System.out.println(" DAO : loginMember(String userid, String userpw) 실행");
 	
 		//sqlSession.selectOne(NAMESPACE+".loginMember",userid,userpw);
@@ -98,8 +98,8 @@ public class memberDAOImpl implements MemberDAO{
 		// * userid(회원가입), userpw(게시판)는 하나의 객체(MemberVO)에 저장이 불가능하다고 가정
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		// paramMap.put("mapper에서 호출하는 이름", 전달될 값);
-		paramMap.put("userid", userid);
-		paramMap.put("userpw", userpw);
+		paramMap.put("id", id);
+		paramMap.put("pw", pw);
 		
 		MemberVO resultVO = sqlSession.selectOne(NAMESPACE+".loginMember",paramMap);
 	
@@ -107,13 +107,13 @@ public class memberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public MemberVO getMember(String userid) {
-		System.out.println(" DAO : getMember(String userid)");
+	public MemberVO getMember(String id) {
+		System.out.println(" DAO : getMember(String id)");
 		
 		// mapper SQL 작성
 
 		// SqlSession 사용 SQL 실행
-		return sqlSession.selectOne(NAMESPACE+".getMember",userid);
+		return sqlSession.selectOne(NAMESPACE+".getMember",id);
 	}
 
 	@Override

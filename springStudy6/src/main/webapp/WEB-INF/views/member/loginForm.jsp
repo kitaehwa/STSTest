@@ -177,8 +177,8 @@ body{
 	<div class="login-wrapper">
 		<h2>login</h2>
 			<form method="post" id="login-form" onsubmit="return frm_check();"> <!-- action 속성이 없을 때 자신의 주소를 호출  -->
-				<input type="text" name="userid" id="logId" placeholder="사원번호"><br>
-				<input type="password" name="userpw" placeholder="비밀번호"><br>
+				<input type="text" name="id" id="logId" placeholder="사원번호"><br>
+				<input type="password" name="pw" placeholder="비밀번호"><br>
 				<label for="remember-check">
                 <input type="checkbox" class="save_id" name="checkId" id="saveId"> 사원번호 저장</label>	
 				<input type="submit" value="로그인">
