@@ -79,7 +79,7 @@
 	<h2><a href="/member/delete"> 회원정보 삭제(delete)</a></h2>
 	<!-- 관리자 기능(사용자 admin일때 사용가능 -->
 	<C:if test="${!empty id && id.equals('admin')}">
-	<h2><a href="/member/list"> 회원정보 목록</a></h2>
+	<h2><a href="/member/list"> 회원정보 목록(list)</a></h2>
 	
 	</C:if>         
           
